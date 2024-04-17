@@ -3,10 +3,8 @@ import { PiTelevisionSimple } from "react-icons/pi";
 import { BiMoviePlay } from "react-icons/bi";
 import { GoHome } from "react-icons/go";
 import { FiSearch } from "react-icons/fi";
-import { createContext, useState } from "react";
+import { useState } from "react";
 import SidebarItem from "./SidebarItem";
-
-export const SidebarContext = createContext();
 
 export default function Sidebar() {
   const [expanded, setExpanded] = useState();
@@ -27,36 +25,45 @@ export default function Sidebar() {
             className="h-10 cursor-pointer"
           />
         </div>
-        <SidebarContext.Provider value={{ expanded }}>
-          <ul className="ml-2 flex flex-col gap-4 text-slate-700">
-            <SidebarItem
-              icon={<FaRegCircleUser className="text-xl" />}
-              text={"MySpace"}
-              navigateTo="/myspace"
-            />
-            <SidebarItem
-              icon={<FiSearch className="text-xl" />}
-              text={"Search"}
-              navigateTo="search"
-            />
-            <SidebarItem
-              icon={<GoHome className="text-xl" />}
-              text={"Home"}
-              navigateTo="/home"
-              active
-            />
-            <SidebarItem
-              icon={<PiTelevisionSimple className="text-xl" />}
-              text={"Series"}
-              navigateTo="series"
-            />
-            <SidebarItem
-              icon={<BiMoviePlay className="text-xl" />}
-              text={"Movies"}
-              navigateTo="movies"
-            />
-          </ul>
-        </SidebarContext.Provider>
+
+        <ul className="ml-2 flex flex-col gap-4 text-slate-700">
+          <SidebarItem
+            icon={<FaRegCircleUser className="text-xl" />}
+            text={"MySpace"}
+            navigateTo="/myspace"
+            expanded={expanded}
+            setExpanded={setExpanded}
+          />
+          <SidebarItem
+            icon={<FiSearch className="text-xl" />}
+            text={"Search"}
+            navigateTo="search"
+            expanded={expanded}
+            setExpanded={setExpanded}
+          />
+          <SidebarItem
+            icon={<GoHome className="text-xl" />}
+            text={"Home"}
+            navigateTo="/home"
+            expanded={expanded}
+            setExpanded={setExpanded}
+            active
+          />
+          <SidebarItem
+            icon={<PiTelevisionSimple className="text-xl" />}
+            text={"Series"}
+            navigateTo="series"
+            expanded={expanded}
+            setExpanded={setExpanded}
+          />
+          <SidebarItem
+            icon={<BiMoviePlay className="text-xl" />}
+            text={"Movies"}
+            navigateTo="movies"
+            expanded={expanded}
+            setExpanded={setExpanded}
+          />
+        </ul>
       </nav>
     </aside>
   );
