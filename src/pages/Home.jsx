@@ -19,8 +19,6 @@ export default function Home() {
 
   if (isTrendingLoading) return <p>Loading...</p>;
 
-  console.log(latestData);
-
   return (
     <div
       style={{

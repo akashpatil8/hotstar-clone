@@ -7,5 +7,7 @@ export function useGetTrending() {
     queryFn: getTrending,
   });
 
+  if (error) console.error(error);
+
   return { trendingData: data?.results, isLoading, error };
 }
