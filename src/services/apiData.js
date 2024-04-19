@@ -111,6 +111,21 @@ export async function getDetails(query) {
   return data;
 }
 
+export async function getCredits(query) {
+  const data = await fetch(
+    `https://api.themoviedb.org/3/movie/${query}/credits?language=en-US`,
+    options,
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      return Error(err);
+    });
+
+  return data;
+}
+
 export async function getSearched(query) {
   const data = await fetch(
     `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`,

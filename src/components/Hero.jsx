@@ -6,16 +6,16 @@ import Carousal from "./Carousal";
 import { formatRuntime } from "../helper/helper";
 import Button from "../ui/Button";
 
-export default function HeroDetails({ carousalData, mainItem, isOnHomePage }) {
+export default function Hero({ carousalData, mainItem, isOnHomePage }) {
   const runtime = formatRuntime(mainItem?.runtime);
 
   return (
     <div className="absolute bottom-16 left-4">
-      <span className="text-6xl">
+      <h1 className="w-[50%] text-6xl">
         {mainItem?.original_title
           ? mainItem?.original_title
           : mainItem?.original_name}
-      </span>
+      </h1>
       <div className="my-6 flex items-center gap-2">
         <p className="text-lg font-semibold">
           {mainItem?.release_date
@@ -26,10 +26,7 @@ export default function HeroDetails({ carousalData, mainItem, isOnHomePage }) {
         <p className="text-lg font-semibold">{runtime}</p>
 
         <div className="h-1 w-1 rounded-full bg-white/60"></div>
-        {/* <p className="">
-         {mainItem?.original_language?.toUpperCase()}
-          
-        </p> */}
+
         {mainItem?.spoken_languages.length > 1 ? (
           <div className="rounded bg-slate-500/40 px-2 py-1 text-lg font-semibold">
             {mainItem?.spoken_languages.length} Languages
@@ -74,18 +71,7 @@ export default function HeroDetails({ carousalData, mainItem, isOnHomePage }) {
           </div>
         ))}
       </div>
-      {/* {!isOnHomePage && (
-        <div className="mb-8 flex gap-2">
-          {data?.genres?.map((genre, i) => (
-            <div key={genre.id} className="flex items-center gap-2">
-              <p className="text-lg font-bold text-white/90">{genre.name}</p>
-              {i !== data.genres.length - 1 && (
-                <div className="h-4 w-0.5 bg-white/50"></div>
-              )}
-            </div>
-          ))}
-        </div>
-      )} */}
+
       <div className="flex h-20 gap-4 pr-16">
         <Button size={"large"}>
           <FaPlay />

@@ -1,5 +1,5 @@
 import { useGetDetails } from "../hooks/useGetDetails";
-import HeroDetails from "./HeroDetails";
+import Hero from "./Hero";
 
 export function Main({
   children,
@@ -11,7 +11,6 @@ export function Main({
 
   if (isLoading) return <p className="h-screen bg-red-500">laodog.....</p>;
 
-  console.log(data);
   return (
     <div
       style={{
@@ -26,7 +25,7 @@ export function Main({
         className={`relative ${isOnHomePage ? "h-[90%]" : "h-full"} bg-gradient-to-t from-black-background via-transparent to-transparent`}
       >
         <div className="absolute top-0 h-full w-full bg-gradient-to-r from-black-background via-black-background/50 to-transparent">
-          <HeroDetails
+          <Hero
             isOnHomePage={isOnHomePage}
             carousalData={carousalData}
             mainItem={data}

@@ -1,4 +1,3 @@
-import CardLoader from "../ui/CardLoader";
 import Card from "./Card";
 
 export default function Row({
@@ -14,13 +13,18 @@ export default function Row({
       <div
         className={`${isRating ? "gap-6" : ""}  items-center pl-4 ${scrollDirection === "vertical" ? "mt-3 grid grid-cols-7 items-center justify-between gap-y-6" : "flex h-[18.5rem] gap-4 overflow-x-auto"}`}
       >
-        {isLoading ? (
-          <CardLoader />
-        ) : (
-          data?.map((movie, i) => (
-            <Card key={movie.id} movie={movie} isRating={isRating} i={i} />
-          ))
-        )}
+        {data
+          ?.slice(0, 15)
+          .map((movie, i) =>
+            isLoading ? (
+              <div
+                key={movie.id}
+                className="animate-pulse rounded-md bg-slate-700/40 lg:h-52 lg:w-36 xl:h-64 xl:w-44"
+              ></div>
+            ) : (
+              <Card key={movie.id} movie={movie} isRating={isRating} i={i} />
+            ),
+          )}
       </div>
     </div>
   );

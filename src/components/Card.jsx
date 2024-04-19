@@ -1,15 +1,13 @@
-import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
-import Details from "../pages/Details";
-import { useGetDetails } from "../hooks/useGetDetails";
+import { useNavigate } from "react-router-dom";
 
 export default function Card({ movie, isRating, i }) {
   const navigate = useNavigate();
+
   return (
     <div
       onClick={() => {
-        navigate(`/details/${movie.id}`);
+        navigate(`/details/${movie?.id}`);
       }}
-      key={movie.id}
       className="relative flex-shrink-0 cursor-pointer rounded transition-all duration-100 hover:scale-110 lg:h-52 lg:w-36 xl:h-64 xl:w-44"
     >
       {movie?.poster_path ? (
