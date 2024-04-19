@@ -3,7 +3,7 @@ import { getDetails } from "../services/apiData";
 
 export function useGetDetails(movieId) {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["details"],
+    queryKey: ["details", movieId],
     queryFn: () => getDetails(movieId),
   });
 

@@ -10,7 +10,7 @@ const options = {
 export async function getTrending() {
   try {
     const data = await fetch(
-      "https://api.themoviedb.org/3/trending/all/day?language=en-US",
+      "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
       options,
     ).then((response) => {
       return response.json();
@@ -36,9 +36,24 @@ export async function getLatest() {
   return data;
 }
 
-export async function getPopular() {
+export async function getTopRated(query) {
   const data = await fetch(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+    `https://api.themoviedb.org/3/${query}/top_rated?language=en-US&page=1`,
+    options,
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      return Error(err);
+    });
+
+  return data;
+}
+
+export async function getPopular(query) {
+  const data = await fetch(
+    `https://api.themoviedb.org/3/${query}/popular?language=en-US&page=1`,
     options,
   )
     .then((response) => {
@@ -66,9 +81,9 @@ export async function getUpcoming() {
   return data;
 }
 
-export async function getTopRated() {
+export async function getSimilar(query) {
   const data = await fetch(
-    "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
+    `https://api.themoviedb.org/3/movie/${query}/similar?language=en-US&page=1`,
     options,
   )
     .then((response) => {

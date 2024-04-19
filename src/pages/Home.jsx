@@ -5,39 +5,71 @@ import { useGetPopular } from "../hooks/useGetPopular";
 import { useGetUpcoming } from "../hooks/useGetUpcoming";
 import Row from "../components/Row";
 import { useTopRated } from "../hooks/useGetTopRated";
+import { getRandomItem } from "../helper/helper";
+import { Main } from "../components/Main";
+import { useGetDetails } from "../hooks/useGetDetails";
 
 export default function Home() {
   const { trendingData, isLoading: isTrendingLoading } = useGetTrending();
   const { latestData, isLoading: isLatestLoading } = useGetLatest();
-  const { popularData, isLoading: isPopularLoading } = useGetPopular();
   const { upcomingData, isLoading: isUpcomingLoading } = useGetUpcoming();
-  const { topRatedData, isLoading: isTopRatedLoading } = useTopRated();
+  const { popularData: popularMoiveData, isLoading: isPopularMovieLoading } =
+    useGetPopular("movie");
+  const { popularData: popularTVData, isLoading: isPopularTVLoading } =
+    useGetPopular("tv");
 
-  const mainItem = trendingData?.at(
-    Math.floor(Math.random() * trendingData?.length),
-  );
+  const { topRatedData: topRatedMovieData, isLoading: isTopRatedMovieLoading } =
+    useTopRated("movie");
+  const { topRatedData: topRatedTVData, isLoading: isTopRatedTVLoading } =
+    useTopRated("tv");
 
-  if (isTrendingLoading) return <p>Loading...</p>;
+  const mainItem = getRandomItem(trendingData);
+
+  if (isTrendingLoading)
+    return (
+      <p className="grid h-screen w-screen place-items-center text-4xl">
+        Loading.......
+      </p>
+    );
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/original/${mainItem?.backdrop_path})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundClip: "fixed",
-      }}
-      className="ml-24 h-screen overflow-x-hidden overflow-y-scroll scroll-smooth text-slate-100"
+    <Main
+      carousalData={trendingData}
+      movieID={mainItem?.id}
+      isOnHomePage={true}
     >
-      <div className="from-black-background relative h-full bg-gradient-to-t via-transparent to-transparent">
-        <div className="from-black-background via-black-background/50 absolute top-0 h-full w-full bg-gradient-to-r to-transparent">
-          <HeroDetails data={trendingData} mainItem={mainItem} />
-        </div>
-      </div>
-      <Row data={latestData} title={"Now playing"} />
-      <Row data={topRatedData} title={"Top Rated"} isRating={true} />
-      <Row data={upcomingData} title={"Upcoming"} />
-      <Row data={popularData} title={"Popular"} />
-    </div>
+      <Row
+        data={latestData}
+        isLoading={isLatestLoading}
+        title={"Latest Movies"}
+      />
+      <Row
+        data={topRatedMovieData}
+        title={"Top Rated Movies"}
+        isRating={true}
+        isLoading={isTopRatedMovieLoading}
+      />
+      <Row
+        data={upcomingData}
+        title={"Upcoming movies"}
+        isLoading={isUpcomingLoading}
+      />
+      <Row
+        data={topRatedTVData}
+        title={"Top Rated TV"}
+        isRating={true}
+        isLoading={isTopRatedTVLoading}
+      />
+      <Row
+        data={popularMoiveData}
+        title={"Popular movies"}
+        isLoading={isPopularMovieLoading}
+      />
+      <Row
+        data={popularTVData}
+        title={"Popular TV"}
+        isLoading={isPopularTVLoading}
+      />
+    </Main>
   );
 }

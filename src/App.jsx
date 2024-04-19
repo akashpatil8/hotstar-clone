@@ -7,6 +7,7 @@ import Series from "./pages/Series";
 import Search from "./pages/Search";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Details from "./pages/Details";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="search" element={<Search />} />
             <Route path="series" element={<Series />} />
             <Route path="movies" element={<Movies />} />
+            <Route path="details/:movieId" element={<Details />} />
           </Route>
         </Routes>
       </BrowserRouter>

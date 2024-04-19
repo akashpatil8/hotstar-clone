@@ -14,10 +14,6 @@ export default function Search() {
     searchedData,
   } = useGetSearched();
 
-  console.log(isSearchedLoading);
-
-  console.log(searchedData);
-
   function handleSubmit(e) {
     e.preventDefault();
     if (!query) return;
@@ -44,10 +40,9 @@ export default function Search() {
           title={"Trending"}
           scrollDirection="vertical"
         />
-      ) : isSearchedLoading ? (
-        <p className="">Loading</p>
       ) : (
         <Row
+          isLoading={isSearchedLoading}
           data={searchedData}
           title={"Top matched"}
           scrollDirection={"vertical"}
