@@ -1,5 +1,6 @@
-import { useGetDetails } from "../hooks/useGetDetails";
 import Hero from "./Hero";
+
+import { useGetDetails } from "../hooks/useGetDetails";
 
 export function Main({
   children,

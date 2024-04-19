@@ -1,5 +1,5 @@
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
 export default function Carousal({ data }) {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ export default function Carousal({ data }) {
             src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
             alt=""
             onClick={() => {
-              navigate(`/details/${item?.id}`);
+              navigate(`/movies/${item?.id}`);
             }}
             className="h-[90%] cursor-pointer rounded opacity-40 transition-all duration-200 hover:scale-[1.15] hover:opacity-100"
           />

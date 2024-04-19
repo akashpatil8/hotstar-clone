@@ -2,11 +2,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function Card({ movie, isRating, i }) {
   const navigate = useNavigate();
+  console.log(movie);
 
   return (
     <div
       onClick={() => {
-        navigate(`/details/${movie?.id}`);
+        navigate(`/movies/${movie?.id}`);
       }}
       className="relative flex-shrink-0 cursor-pointer rounded transition-all duration-100 hover:scale-110 lg:h-52 lg:w-36 xl:h-64 xl:w-44"
     >

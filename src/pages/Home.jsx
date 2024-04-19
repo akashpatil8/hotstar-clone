@@ -1,11 +1,12 @@
+import Row from "../components/Row";
+
+import { Main } from "../components/Main";
+import { getRandomItem } from "../helper/helper";
 import { useGetTrending } from "../hooks/useGetTrending";
 import { useGetLatest } from "../hooks/useGetLatest";
 import { useGetPopular } from "../hooks/useGetPopular";
 import { useGetUpcoming } from "../hooks/useGetUpcoming";
-import Row from "../components/Row";
 import { useTopRated } from "../hooks/useGetTopRated";
-import { getRandomItem } from "../helper/helper";
-import { Main } from "../components/Main";
 
 export default function Home() {
   const { trendingData, isLoading: isTrendingLoading } = useGetTrending();

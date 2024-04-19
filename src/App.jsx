@@ -1,12 +1,13 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 import AppLayout from "./components/AppLayout";
 import Home from "./pages/Home";
 import MySpace from "./pages/MySpace";
 import Movies from "./pages/Movies";
 import Series from "./pages/Series";
 import Search from "./pages/Search";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Details from "./pages/Details";
 
 const queryClient = new QueryClient({
@@ -31,7 +32,7 @@ export default function App() {
             <Route path="search" element={<Search />} />
             <Route path="series" element={<Series />} />
             <Route path="movies" element={<Movies />} />
-            <Route path="details/:movieId" element={<Details />} />
+            <Route path="movies/:movieId" element={<Details />} />
           </Route>
         </Routes>
       </BrowserRouter>

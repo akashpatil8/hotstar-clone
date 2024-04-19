@@ -2,9 +2,9 @@ import { BsPlusLg } from "react-icons/bs";
 import { FaPlay } from "react-icons/fa6";
 
 import Carousal from "./Carousal";
+import Button from "../ui/Button";
 
 import { formatRuntime } from "../helper/helper";
-import Button from "../ui/Button";
 
 export default function Hero({ carousalData, mainItem, isOnHomePage }) {
   const runtime = formatRuntime(mainItem?.runtime);
@@ -40,22 +40,21 @@ export default function Hero({ carousalData, mainItem, isOnHomePage }) {
         )}
 
         <div className="flex items-center gap-2 text-lg font-semibold">
-          {!isOnHomePage &&
-            (mainItem?.adult ? (
-              <>
-                <div className="h-1 w-1 rounded-full bg-white/60"></div>
-                <div className=" rounded  bg-red-500/40 px-2 py-1 text-white">
-                  Adult
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="h-1 w-1 rounded-full bg-white/60"></div>
-                <div className=" rounded  bg-green-500/40 px-2 py-1 text-white">
-                  Family
-                </div>
-              </>
-            ))}
+          {mainItem?.adult ? (
+            <>
+              <div className="h-1 w-1 rounded-full bg-white/60"></div>
+              <div className=" rounded  bg-red-500/40 px-2 py-1 text-white">
+                Adult
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="h-1 w-1 rounded-full bg-white/60"></div>
+              <div className=" rounded  bg-green-500/40 px-2 py-1 text-white">
+                Family
+              </div>
+            </>
+          )}
         </div>
       </div>
       <p className="mb-8 w-[40%] text-lg text-white/70">

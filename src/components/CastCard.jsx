@@ -1,7 +1,6 @@
 import { RxPerson } from "react-icons/rx";
 
 export default function CastCard({ credit }) {
-  console.log(credit);
   return (
     <div className="h-full w-36 flex-shrink-0">
       {credit.profile_path ? (
