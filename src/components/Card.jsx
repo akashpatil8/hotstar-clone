@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 export default function Card({ item, isRating, i }) {
   const navigate = useNavigate();
   const mediaType = item.release_date ? "movie" : "tv";
+  const urlTitle = item.original_title
+    ? item.original_title.replaceAll(" ", "-")
+    : item.original_name.replaceAll(" ", "-");
 
   return (
     <div
       onClick={() => {
-        navigate(`/${mediaType}/${item?.id}`, { state: { item } });
+        navigate(`/${mediaType}/${urlTitle}/${item?.id}`, { state: { item } });
       }}
       className="relative flex-shrink-0 cursor-pointer rounded transition-all duration-100 hover:scale-110 lg:h-52 lg:w-36 xl:h-64 xl:w-44"
     >

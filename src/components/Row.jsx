@@ -9,12 +9,12 @@ export default function Row({
   scrollDirection,
 }) {
   return (
-    <div className="bg-black-background pb-4 pr-4">
+    <div className="bg-black-background pb-4 ">
       <p className=" pl-4 text-xl font-semibold tracking-wide text-slate-100">
         {title}
       </p>
       <div
-        className={`${isRating ? "gap-6" : ""} flex items-center pl-4 ${scrollDirection === "vertical" ? " mt-4 flex-wrap items-start gap-4" : "h-72 gap-3 overflow-x-auto overflow-y-hidden"}`}
+        className={`${isRating ? "gap-7" : ""} flex items-center pl-4 ${scrollDirection === "vertical" ? "mt-4 flex-wrap items-start gap-4" : "h-72 gap-3 overflow-x-auto overflow-y-hidden"}`}
       >
         {itemsData
           ?.slice(0, 15)

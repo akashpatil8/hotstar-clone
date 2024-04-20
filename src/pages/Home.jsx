@@ -9,7 +9,8 @@ import { useGetUpcoming } from "../hooks/useGetUpcoming";
 import { useTopRated } from "../hooks/useGetTopRated";
 
 export default function Home() {
-  const { trendingData, isLoading: isTrendingLoading } = useGetTrending("all");
+  const { trendingData: trendingAllData, isLoading: isTrendingAllLoading } =
+    useGetTrending("all");
   const { latestData, isLoading: isLatestLoading } = useGetLatest();
   const { upcomingData, isLoading: isUpcomingLoading } = useGetUpcoming();
   const { popularData: popularMoiveData, isLoading: isPopularMovieLoading } =
@@ -22,9 +23,9 @@ export default function Home() {
   const { topRatedData: topRatedTVData, isLoading: isTopRatedTVLoading } =
     useTopRated("tv");
 
-  const mainItem = getRandomItem(trendingData);
+  const mainItem = getRandomItem(trendingAllData);
 
-  if (isTrendingLoading)
+  if (isTrendingAllLoading)
     return (
       <p className="grid h-screen w-screen place-items-center text-4xl">
         Loading.......
@@ -32,7 +33,11 @@ export default function Home() {
     );
 
   return (
-    <Main carousalData={trendingData} mainItem={mainItem} isOnHomePage={true}>
+    <Main
+      carousalData={trendingAllData}
+      mainItem={mainItem}
+      isOnHomePage={true}
+    >
       <Row
         itemsData={latestData}
         isLoading={isLatestLoading}
