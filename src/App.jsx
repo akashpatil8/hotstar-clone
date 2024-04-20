@@ -32,7 +32,7 @@ export default function App() {
             <Route path="search" element={<Search />} />
             <Route path="series" element={<Series />} />
             <Route path="movies" element={<Movies />} />
-            <Route path="movies/:movieId" element={<Details />} />
+            <Route path=":mediaType/:movieId" element={<Details />} />
           </Route>
         </Routes>
       </BrowserRouter>

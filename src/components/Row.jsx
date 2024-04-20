@@ -1,28 +1,28 @@
+import CardLoader from "../ui/CardLoader";
 import Card from "./Card";
 
 export default function Row({
   isLoading,
-  data,
+  itemsData,
   title,
   isRating = false,
   scrollDirection,
 }) {
   return (
     <div className="bg-black-background pb-4 pr-4">
-      <p className="pl-4 text-2xl font-bold">{title}</p>
+      <p className=" pl-4 text-xl font-semibold tracking-wide text-slate-100">
+        {title}
+      </p>
       <div
-        className={`${isRating ? "gap-6" : ""}  items-center pl-4 ${scrollDirection === "vertical" ? "mt-3 grid grid-cols-7 items-center justify-between gap-y-6" : "flex h-[18.5rem] gap-4 overflow-x-auto"}`}
+        className={`${isRating ? "gap-6" : ""} flex items-center pl-4 ${scrollDirection === "vertical" ? " mt-4 flex-wrap items-start gap-4" : "h-72 gap-3 overflow-x-auto overflow-y-hidden"}`}
       >
-        {data
+        {itemsData
           ?.slice(0, 15)
-          .map((movie, i) =>
+          .map((item, i) =>
             isLoading ? (
-              <div
-                key={movie.id}
-                className="animate-pulse rounded-md bg-slate-700/40 lg:h-52 lg:w-36 xl:h-64 xl:w-44"
-              ></div>
+              <CardLoader key={item.id} />
             ) : (
-              <Card key={movie.id} movie={movie} isRating={isRating} i={i} />
+              <Card key={item.id} item={item} isRating={isRating} i={i} />
             ),
           )}
       </div>

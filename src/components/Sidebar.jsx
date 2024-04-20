@@ -4,6 +4,7 @@ import { BiMoviePlay } from "react-icons/bi";
 import { GoHome } from "react-icons/go";
 import { FiSearch } from "react-icons/fi";
 import { useState } from "react";
+
 import SidebarItem from "./SidebarItem";
 
 export default function Sidebar() {
@@ -11,7 +12,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`absolute left-0 z-10 h-screen ${expanded ? "from-black-background via-black-background bg-gradient-to-r to-slate-950/0" : "bg-transparent"}`}
+      className={`absolute left-0 z-10 h-screen ${expanded ? "bg-gradient-to-r from-black-background via-black-background/95 to-transparent" : "bg-transparent"}`}
     >
       <nav
         onMouseEnter={() => setExpanded(true)}

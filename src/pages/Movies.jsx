@@ -1,43 +1,54 @@
-import { useGetTrending } from "../hooks/useGetTrending";
+import Row from "../components/Row";
+
 import { useGetLatest } from "../hooks/useGetLatest";
 import { useGetPopular } from "../hooks/useGetPopular";
 import { useGetUpcoming } from "../hooks/useGetUpcoming";
-import Row from "../components/Row";
 import { useTopRated } from "../hooks/useGetTopRated";
-import { getRandomItem } from "../helper/helper";
-import { Main } from "../components/Main";
+import { useGetTrending } from "../hooks/useGetTrending";
 
 export default function Movies() {
-  const { latestData, isLoading: isLatestLoading } = useGetLatest();
-  const { upcomingData, isLoading: isUpcomingLoading } = useGetUpcoming();
+  const {
+    trendingData: trendingMoviesData,
+    isLoading: isTrendingMoviesLoading,
+  } = useGetTrending("movie");
+  const { latestData: latestMoviesData, isLoading: isLatestMoviesLoading } =
+    useGetLatest();
+  const {
+    upcomingData: upcomingMoviesData,
+    isLoading: isUpcomingMoviesLoading,
+  } = useGetUpcoming();
   const { popularData: popularMoiveData, isLoading: isPopularMovieLoading } =
     useGetPopular("movie");
-
   const { topRatedData: topRatedMovieData, isLoading: isTopRatedMovieLoading } =
     useTopRated("movie");
 
   return (
-    <div className="absolute left-0 h-screen w-screen overflow-y-scroll bg-black-background pl-24 text-slate-100">
+    <div className="absolute left-0 h-screen w-screen overflow-y-scroll bg-black-background pl-24 pt-8 text-slate-100">
       <Row
-        data={latestData}
-        isLoading={isLatestLoading}
+        itemsData={trendingMoviesData}
+        isLoading={isTrendingMoviesLoading}
+        title={"Today's Trending Movies"}
+      />
+      <Row
+        itemsData={latestMoviesData}
+        isLoading={isLatestMoviesLoading}
         title={"Latest Movies"}
       />
       <Row
-        data={topRatedMovieData}
-        title={"Top Rated Movies"}
+        itemsData={topRatedMovieData}
         isRating={true}
         isLoading={isTopRatedMovieLoading}
+        title={"Top Rated Movies"}
       />
       <Row
-        data={upcomingData}
+        itemsData={upcomingMoviesData}
+        isLoading={isUpcomingMoviesLoading}
         title={"Upcoming movies"}
-        isLoading={isUpcomingLoading}
       />
       <Row
-        data={popularMoiveData}
-        title={"Popular movies"}
+        itemsData={popularMoiveData}
         isLoading={isPopularMovieLoading}
+        title={"Popular movies"}
       />
     </div>
   );

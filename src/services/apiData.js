@@ -7,10 +7,11 @@ const options = {
   },
 };
 
-export async function getTrending() {
+export async function getTrending({ mediaType }) {
   try {
     const data = await fetch(
-      "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
+      // 'https://api.themoviedb.org/3/trending/all/day?language=en-US'
+      `https://api.themoviedb.org/3/trending/${mediaType}/day?language=en-US`,
       options,
     ).then((response) => {
       return response.json();
@@ -81,9 +82,10 @@ export async function getUpcoming() {
   return data;
 }
 
-export async function getSimilar(query) {
+export async function getSimilar({ itemId, mediaType }) {
   const data = await fetch(
-    `https://api.themoviedb.org/3/movie/${query}/similar?language=en-US&page=1`,
+    // 'https://api.themoviedb.org/3/tv/series_id/similar?language=en-US&page=1'
+    `https://api.themoviedb.org/3/${mediaType}/${itemId}/similar?language=en-US&page=1`,
     options,
   )
     .then((response) => {
@@ -96,9 +98,10 @@ export async function getSimilar(query) {
   return data;
 }
 
-export async function getDetails(query) {
+export async function getDetails({ itemId, mediaType }) {
   const data = await fetch(
-    `https://api.themoviedb.org/3/movie/${query}?language=en-US`,
+    // 'https://api.themoviedb.org/3/tv/series_id?language=en-US'
+    `https://api.themoviedb.org/3/${mediaType}/${itemId}?language=en-US`,
     options,
   )
     .then((response) => {
@@ -111,9 +114,10 @@ export async function getDetails(query) {
   return data;
 }
 
-export async function getCredits(query) {
+export async function getCredits({ itemId, mediaType }) {
   const data = await fetch(
-    `https://api.themoviedb.org/3/movie/${query}/credits?language=en-US`,
+    // https://api.themoviedb.org/3/tv/series_id/credits?language=en-US
+    `https://api.themoviedb.org/3/${mediaType}/${itemId}/credits?language=en-US`,
     options,
   )
     .then((response) => {

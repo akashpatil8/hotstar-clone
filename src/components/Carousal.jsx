@@ -16,7 +16,7 @@ export default function Carousal({ data }) {
             src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
             alt=""
             onClick={() => {
-              navigate(`/movies/${item?.id}`);
+              navigate(`/movies/${item?.id}`, { state: { item } });
             }}
             className="h-[90%] cursor-pointer rounded opacity-40 transition-all duration-200 hover:scale-[1.15] hover:opacity-100"
           />

@@ -5,10 +5,12 @@ import { useGetDetails } from "../hooks/useGetDetails";
 export function Main({
   children,
   carousalData,
-  movieID,
+  mainItem,
   isOnHomePage = false,
 }) {
-  const { data, isLoading } = useGetDetails(movieID);
+  const mediaType = mainItem?.release_date ? "movie" : "tv";
+  const itemId = mainItem?.id;
+  const { data, isLoading } = useGetDetails({ itemId, mediaType });
 
   if (isLoading) return <p className="h-screen bg-red-500">laodog.....</p>;
 
@@ -29,7 +31,7 @@ export function Main({
           <Hero
             isOnHomePage={isOnHomePage}
             carousalData={carousalData}
-            mainItem={data}
+            item={data}
           />
         </div>
       </div>

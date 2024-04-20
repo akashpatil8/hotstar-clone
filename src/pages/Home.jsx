@@ -9,7 +9,7 @@ import { useGetUpcoming } from "../hooks/useGetUpcoming";
 import { useTopRated } from "../hooks/useGetTopRated";
 
 export default function Home() {
-  const { trendingData, isLoading: isTrendingLoading } = useGetTrending();
+  const { trendingData, isLoading: isTrendingLoading } = useGetTrending("all");
   const { latestData, isLoading: isLatestLoading } = useGetLatest();
   const { upcomingData, isLoading: isUpcomingLoading } = useGetUpcoming();
   const { popularData: popularMoiveData, isLoading: isPopularMovieLoading } =
@@ -32,40 +32,36 @@ export default function Home() {
     );
 
   return (
-    <Main
-      carousalData={trendingData}
-      movieID={mainItem?.id}
-      isOnHomePage={true}
-    >
+    <Main carousalData={trendingData} mainItem={mainItem} isOnHomePage={true}>
       <Row
-        data={latestData}
+        itemsData={latestData}
         isLoading={isLatestLoading}
         title={"Latest Movies"}
       />
       <Row
-        data={topRatedMovieData}
+        itemsData={topRatedMovieData}
         title={"Top Rated Movies"}
         isRating={true}
         isLoading={isTopRatedMovieLoading}
       />
       <Row
-        data={upcomingData}
+        itemsData={upcomingData}
         title={"Upcoming movies"}
         isLoading={isUpcomingLoading}
       />
       <Row
-        data={topRatedTVData}
-        title={"Top Rated TV"}
+        itemsData={topRatedTVData}
+        title={"Top Rated TV Shows"}
         isRating={true}
         isLoading={isTopRatedTVLoading}
       />
       <Row
-        data={popularMoiveData}
+        itemsData={popularMoiveData}
         title={"Popular movies"}
         isLoading={isPopularMovieLoading}
       />
       <Row
-        data={popularTVData}
+        itemsData={popularTVData}
         title={"Popular TV"}
         isLoading={isPopularTVLoading}
       />
