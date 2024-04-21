@@ -37,9 +37,9 @@ export async function getLatest() {
   return data;
 }
 
-export async function getTopRated(query) {
+export async function getTopRated({ mediaType }) {
   const data = await fetch(
-    `https://api.themoviedb.org/3/${query}/top_rated?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/${mediaType}/top_rated?language=en-US&page=1`,
     options,
   )
     .then((response) => {
@@ -52,9 +52,9 @@ export async function getTopRated(query) {
   return data;
 }
 
-export async function getPopular(query) {
+export async function getPopular({ mediaType }) {
   const data = await fetch(
-    `https://api.themoviedb.org/3/${query}/popular?language=en-US&page=1`,
+    `https://api.themoviedb.org/3/${mediaType}/popular?language=en-US&page=1`,
     options,
   )
     .then((response) => {
@@ -133,6 +133,38 @@ export async function getCredits({ itemId, mediaType }) {
 export async function getSearched(query) {
   const data = await fetch(
     `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`,
+    options,
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      return Error(err);
+    });
+
+  return data;
+}
+
+export async function getGenres({ mediaType }) {
+  const data = await fetch(
+    // https://api.themoviedb.org/3/genre/tv/list?language=en
+    `https://api.themoviedb.org/3/genre/${mediaType}/list?language=en`,
+    options,
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      return Error(err);
+    });
+
+  return data;
+}
+
+// 'https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1'
+export async function getAiringTodayTV() {
+  const data = await fetch(
+    "https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1",
     options,
   )
     .then((response) => {

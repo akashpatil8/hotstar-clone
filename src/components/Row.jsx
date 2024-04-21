@@ -10,22 +10,28 @@ export default function Row({
 }) {
   return (
     <div className="bg-black-background pb-4 ">
-      <p className=" pl-4 text-xl font-semibold tracking-wide text-slate-100">
+      <p className="pl-4 text-xl font-semibold tracking-wide text-slate-100">
         {title}
       </p>
-      <div
-        className={`${isRating ? "gap-7" : ""} flex items-center pl-4 ${scrollDirection === "vertical" ? "mt-4 flex-wrap items-start gap-4" : "h-72 gap-3 overflow-x-auto overflow-y-hidden"}`}
-      >
-        {itemsData
-          ?.slice(0, 15)
-          .map((item, i) =>
-            isLoading ? (
-              <CardLoader key={item.id} />
-            ) : (
-              <Card key={item.id} item={item} isRating={isRating} i={i} />
-            ),
-          )}
-      </div>
+      {itemsData?.length === 0 ? (
+        <p className="mt-8 h-52 pl-4 text-xl text-slate-100/30">
+          No data found for this item
+        </p>
+      ) : (
+        <div
+          className={`${isRating ? "gap-7" : ""} flex items-center pl-4 ${scrollDirection === "vertical" ? "mt-4 flex-wrap items-start gap-4" : "h-72 gap-3 overflow-x-auto overflow-y-hidden"}`}
+        >
+          {itemsData
+            ?.slice(0, 15)
+            .map((item, i) =>
+              isLoading ? (
+                <CardLoader key={item.id} />
+              ) : (
+                <Card key={item.id} item={item} isRating={isRating} i={i} />
+              ),
+            )}
+        </div>
+      )}
     </div>
   );
 }

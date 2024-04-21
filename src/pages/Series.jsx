@@ -1,26 +1,31 @@
+import { GenreRow } from "../components/GenreRow";
 import Row from "../components/Row";
+import { useGetAiringTodayTV } from "../hooks/useGetAiringTodayTV";
+import { useGetGenres } from "../hooks/useGetGenres";
 
-import { useGetLatest } from "../hooks/useGetLatest";
 import { useGetPopular } from "../hooks/useGetPopular";
-import { useGetUpcoming } from "../hooks/useGetUpcoming";
 import { useTopRated } from "../hooks/useGetTopRated";
 import { useGetTrending } from "../hooks/useGetTrending";
 
 export default function Series() {
   const { trendingData: trendingTVData, isLoading: isTrendingTVLoading } =
     useGetTrending("tv");
-  // const { latestData: latestMoviesData, isLoading: isLatestMoviesLoading } =
-  //   useGetLatest();
-  // const {
-  //   upcomingData: upcomingMoviesData,
-  //   isLoading: isUpcomingMoviesLoading,
-  // } = useGetUpcoming();
+  const { gernesData: gernesTVData, isLoading: isGernesTVLoading } =
+    useGetGenres("tv");
   const { popularData: popularTVData, isLoading: isPopularTVLoading } =
     useGetPopular("tv");
   const { topRatedData: topRatedTVData, isLoading: isTopRatedTVLoading } =
     useTopRated("tv");
+  const { airingToadyTVData, isLoading: isAiringToadyTVDataLoading } =
+    useGetAiringTodayTV();
+
   return (
     <div className="absolute left-0 h-screen w-screen overflow-y-scroll bg-black-background pl-24 pt-8 text-slate-100">
+      <Row
+        itemsData={airingToadyTVData}
+        isLoading={isAiringToadyTVDataLoading}
+        title={"Airing Today on TV"}
+      />
       <Row
         itemsData={trendingTVData}
         isLoading={isTrendingTVLoading}
@@ -33,6 +38,8 @@ export default function Series() {
         title={"Top Rated TV"}
         isRating={true}
       />
+
+      <GenreRow gernesData={gernesTVData} isGernesLoading={isGernesTVLoading} />
 
       <Row
         itemsData={popularTVData}

@@ -5,6 +5,8 @@ import { useGetPopular } from "../hooks/useGetPopular";
 import { useGetUpcoming } from "../hooks/useGetUpcoming";
 import { useTopRated } from "../hooks/useGetTopRated";
 import { useGetTrending } from "../hooks/useGetTrending";
+import { useGetGenres } from "../hooks/useGetGenres";
+import { GenreRow } from "../components/GenreRow";
 
 export default function Movies() {
   const {
@@ -21,6 +23,8 @@ export default function Movies() {
     useGetPopular("movie");
   const { topRatedData: topRatedMovieData, isLoading: isTopRatedMovieLoading } =
     useTopRated("movie");
+  const { gernesData: gernesMovieData, isLoading: isGernesMovieLoading } =
+    useGetGenres("movie");
 
   return (
     <div className="absolute left-0 h-screen w-screen overflow-y-scroll bg-black-background pl-24 pt-8 text-slate-100">
@@ -39,6 +43,10 @@ export default function Movies() {
         isRating={true}
         isLoading={isTopRatedMovieLoading}
         title={"Top Rated Movies"}
+      />
+      <GenreRow
+        gernesData={gernesMovieData}
+        isGernesLoading={isGernesMovieLoading}
       />
       <Row
         itemsData={upcomingMoviesData}
