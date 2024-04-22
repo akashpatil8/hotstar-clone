@@ -6,6 +6,7 @@ import CasteRow from "../components/CasteRow";
 import { Main } from "../components/Main";
 import { useGetSimilar } from "../hooks/useGetSimilar";
 import { useGetCredits } from "../hooks/useGetCredits";
+import { Footer } from "../components/Footer";
 
 export default function Details() {
   const location = useLocation();
@@ -31,6 +32,8 @@ export default function Details() {
         isLoading={isSimilarLoading}
         title={"More like this"}
       />
+
+      <Footer/>
     </Main>
   );
 }

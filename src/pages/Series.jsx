@@ -1,3 +1,4 @@
+import { Footer } from "../components/Footer";
 import { GenreRow } from "../components/GenreRow";
 import Row from "../components/Row";
 import { useGetAiringTodayTV } from "../hooks/useGetAiringTodayTV";
@@ -46,6 +47,8 @@ export default function Series() {
         isLoading={isPopularTVLoading}
         title={"Popular TV"}
       />
+
+      <Footer/>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import { LuFacebook, LuTwitter } from "react-icons/lu";
+
 import Row from "../components/Row";
 
 import { useGetLatest } from "../hooks/useGetLatest";
@@ -7,6 +9,9 @@ import { useTopRated } from "../hooks/useGetTopRated";
 import { useGetTrending } from "../hooks/useGetTrending";
 import { useGetGenres } from "../hooks/useGetGenres";
 import { GenreRow } from "../components/GenreRow";
+import { FaGooglePay, FaGooglePlay } from "react-icons/fa6";
+import { GrApple } from "react-icons/gr";
+import { Footer } from "../components/Footer";
 
 export default function Movies() {
   const {
@@ -27,7 +32,7 @@ export default function Movies() {
     useGetGenres("movie");
 
   return (
-    <div className="absolute left-0 h-screen w-screen overflow-y-scroll bg-black-background pl-24 pt-8 text-slate-100">
+    <div className="absolute left-0 h-screen w-screen overflow-y-scroll bg-black-background pl-24 pr-4 pt-8 text-slate-100">
       <Row
         itemsData={trendingMoviesData}
         isLoading={isTrendingMoviesLoading}
@@ -58,6 +63,8 @@ export default function Movies() {
         isLoading={isPopularMovieLoading}
         title={"Popular movies"}
       />
+
+      <Footer />
     </div>
   );
 }

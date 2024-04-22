@@ -7,6 +7,7 @@ import CardLoader from "../ui/CardLoader";
 
 import { useGetSearched } from "../hooks/useGetSearched";
 import { useGetTrending } from "../hooks/useGetTrending";
+import { Footer } from "../components/Footer";
 
 export default function Search() {
   const [query, setQuery] = useState("");
@@ -66,6 +67,8 @@ export default function Search() {
           </div>
         </>
       )}
+
+      <Footer/>
     </div>
   );
 }

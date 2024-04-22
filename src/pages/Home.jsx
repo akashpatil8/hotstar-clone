@@ -7,6 +7,7 @@ import { useGetLatest } from "../hooks/useGetLatest";
 import { useGetPopular } from "../hooks/useGetPopular";
 import { useGetUpcoming } from "../hooks/useGetUpcoming";
 import { useTopRated } from "../hooks/useGetTopRated";
+import { Footer } from "../components/Footer";
 
 export default function Home() {
   const { trendingData: trendingAllData, isLoading: isTrendingAllLoading } =
@@ -70,6 +71,8 @@ export default function Home() {
         title={"Popular TV"}
         isLoading={isPopularTVLoading}
       />
+
+      <Footer />
     </Main>
   );
 }
