@@ -8,6 +8,7 @@ import { useGetPopular } from "../hooks/useGetPopular";
 import { useGetUpcoming } from "../hooks/useGetUpcoming";
 import { useTopRated } from "../hooks/useGetTopRated";
 import { Footer } from "../components/Footer";
+import Spinner from "../ui/Spinner";
 
 export default function Home() {
   const { trendingData: trendingAllData, isLoading: isTrendingAllLoading } =
@@ -26,12 +27,7 @@ export default function Home() {
 
   const mainItem = getRandomItem(trendingAllData);
 
-  if (isTrendingAllLoading)
-    return (
-      <p className="grid h-screen w-screen place-items-center text-4xl">
-        Loading.......
-      </p>
-    );
+  if (isTrendingAllLoading) return <Spinner />;
 
   return (
     <Main

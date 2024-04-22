@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import Row from "../components/Row";
 import CasteRow from "../components/CasteRow";
@@ -33,7 +33,7 @@ export default function Details() {
         title={"More like this"}
       />
 
-      <Footer/>
+      <Footer />
     </Main>
   );
 }
