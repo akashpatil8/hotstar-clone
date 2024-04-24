@@ -12,7 +12,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`absolute left-0 z-10 h-screen ${expanded ? "bg-gradient-to-r from-black-background via-black-background/95 to-transparent" : "bg-transparent"}`}
+      className={`absolute left-0 z-30 h-screen ${expanded ? "bg-gradient-to-r from-black-background via-black-background/95 to-transparent" : "bg-transparent"}`}
     >
       <nav
         onMouseEnter={() => setExpanded(true)}

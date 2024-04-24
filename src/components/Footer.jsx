@@ -6,8 +6,8 @@ import { FooterColumnChildren } from "./FooterColumnChildren";
 
 export function Footer() {
   return (
-    <footer className="bg-black-background py-8 pl-4 pr-12">
-      <div className="my-8 flex justify-between">
+    <footer className="bg-black-background py-4 pl-4 lg:py-8 lg:pr-12">
+      <div className="my-4 flex justify-between lg:my-8">
         <FooterColumn title={"Company"}>
           <FooterColumnChildren name={"About us"} />
           <FooterColumnChildren name={"Careers"} />
@@ -30,34 +30,28 @@ export function Footer() {
       </div>
       <div className="flex justify-between">
         <div>
-          <p className="mb-1 mt-2 cursor-pointer text-base font-normal capitalize text-slate-200/50">
+          <p className="mb-1 mt-2 cursor-pointer text-sm font-normal capitalize text-slate-200/50 lg:text-base">
             © 2023 STAR. All rights reserved.
           </p>
-          <div className="flex gap-4">
-            <p className="cursor-pointer text-base font-normal capitalize text-slate-200/50">
-              Terms of use
-            </p>
-            <p className="cursor-pointer text-base font-normal capitalize text-slate-200/50">
-              Privacy policy
-            </p>
-            <p className="cursor-pointer text-base font-normal capitalize text-slate-200/50">
-              FAQ
-            </p>
+          <div className="flex cursor-pointer gap-2 text-sm font-normal capitalize text-slate-200/50 lg:gap-4 lg:text-base">
+            <p>Terms of use</p>
+            <p>Privacy policy</p>
+            <p>FAQ</p>
           </div>
         </div>
-        <div className="flex gap-4">
-          <div className="flex h-12 items-center gap-2 bg-black px-0.5">
-            <FaGooglePlay className="text-3xl" />
+        <div className="flex items-center gap-2 lg:gap-4">
+          <div className="flex h-10 items-center gap-2 bg-black px-0.5 lg:h-12">
+            <FaGooglePlay className="text-xl lg:text-3xl" />
             <div>
-              <p className="-mb-1 text-xs">Get it on</p>
-              <p className="text-lg font-medium">Google Play</p>
+              <p className="-mb-1 text-[0.65rem] lg:text-xs">Get it on</p>
+              <p className="font-medium lg:text-lg">Google Play</p>
             </div>
           </div>
-          <div className="flex h-12 items-center gap-2 bg-black px-0.5">
-            <GrApple className="text-3xl" />
+          <div className="flex h-10 items-center gap-2 bg-black px-0.5 lg:h-12">
+            <GrApple className="text-xl lg:text-3xl" />
             <div>
-              <p className="-mb-1 text-xs">Download on the</p>
-              <p className="text-lg font-medium">App Store</p>
+              <p className="-mb-1 text-[0.65rem] lg:text-xs">Download on</p>
+              <p className="font-medium lg:text-lg">App Store</p>
             </div>
           </div>
         </div>

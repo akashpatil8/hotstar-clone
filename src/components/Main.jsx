@@ -13,7 +13,6 @@ export function Main({
   const itemId = mainItem?.id;
   const { data, isLoading } = useGetDetails({ itemId, mediaType });
 
-  // if (isLoading) return <p className="h-screen bg-red-500">laodog.....</p>;
   if (isLoading) return <Spinner />;
 
   return (
