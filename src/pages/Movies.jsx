@@ -1,4 +1,5 @@
 import Row from "../components/Row";
+import Footer  from "../components/Footer";
 
 import { useGetLatest } from "../hooks/useGetLatest";
 import { useGetPopular } from "../hooks/useGetPopular";
@@ -7,7 +8,6 @@ import { useTopRated } from "../hooks/useGetTopRated";
 import { useGetTrending } from "../hooks/useGetTrending";
 import { useGetGenres } from "../hooks/useGetGenres";
 import { GenreRow } from "../components/GenreRow";
-import { Footer } from "../components/Footer";
 
 export default function Movies() {
   const {

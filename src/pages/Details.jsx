@@ -2,11 +2,11 @@ import { useLocation } from "react-router-dom";
 
 import Row from "../components/Row";
 import CasteRow from "../components/CasteRow";
+import Footer from "../components/Footer";
 
 import { Main } from "../components/Main";
 import { useGetSimilar } from "../hooks/useGetSimilar";
 import { useGetCredits } from "../hooks/useGetCredits";
-import { Footer } from "../components/Footer";
 
 export default function Details() {
   const location = useLocation();

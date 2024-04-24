@@ -1,4 +1,6 @@
 import Row from "../components/Row";
+import Footer from "../components/Footer";
+import Spinner from "../ui/Spinner";
 
 import { Main } from "../components/Main";
 import { getRandomItem } from "../helper/helper";
@@ -7,8 +9,6 @@ import { useGetLatest } from "../hooks/useGetLatest";
 import { useGetPopular } from "../hooks/useGetPopular";
 import { useGetUpcoming } from "../hooks/useGetUpcoming";
 import { useTopRated } from "../hooks/useGetTopRated";
-import { Footer } from "../components/Footer";
-import Spinner from "../ui/Spinner";
 
 export default function Home() {
   const { trendingData: trendingAllData, isLoading: isTrendingAllLoading } =

@@ -1,9 +1,9 @@
-import { Footer } from "../components/Footer";
-import { GenreRow } from "../components/GenreRow";
+import Footer  from "../components/Footer";
 import Row from "../components/Row";
+
+import { GenreRow } from "../components/GenreRow";
 import { useGetAiringTodayTV } from "../hooks/useGetAiringTodayTV";
 import { useGetGenres } from "../hooks/useGetGenres";
-
 import { useGetPopular } from "../hooks/useGetPopular";
 import { useTopRated } from "../hooks/useGetTopRated";
 import { useGetTrending } from "../hooks/useGetTrending";

@@ -4,7 +4,7 @@ import { LuFacebook, LuTwitter } from "react-icons/lu";
 import { FooterColumn } from "./FooterColumn";
 import { FooterColumnChildren } from "./FooterColumnChildren";
 
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="bg-black-background py-4 pl-4 lg:py-8 lg:pr-12">
       <div className="my-4 flex justify-between lg:my-8">
