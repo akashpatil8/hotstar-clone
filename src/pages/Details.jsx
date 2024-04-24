@@ -24,9 +24,11 @@ export default function Details() {
     mediaType,
   });
 
+  console.log(creditsData);
+
   return (
     <Main mainItem={item}>
-      <CasteRow creditsData={creditsData} />
+      {creditsData?.length > 0 && <CasteRow creditsData={creditsData} />}
       <Row
         itemsData={similarData}
         isLoading={isSimilarLoading}

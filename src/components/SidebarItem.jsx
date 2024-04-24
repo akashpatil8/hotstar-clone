@@ -15,7 +15,7 @@ export default function SidebarItem({
         onClick();
         navigate(navigateTo);
       }}
-      className={`flex h-12 cursor-pointer items-center rounded p-4 transition-all ${active ? "bg-slate-400/10 text-slate-100" : ""} group hover:text-slate-100`}
+      className={`flex h-12 cursor-pointer items-center rounded-lg p-4 transition-all ${active ? "bg-slate-400/10 text-slate-100" : ""} group hover:text-slate-100`}
     >
       {icon}
       <p

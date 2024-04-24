@@ -50,9 +50,9 @@ export default function Search() {
                 ?.slice(0, 15)
                 .map((item, i) => <Card key={item.id} item={item} i={i} />)
             ) : (
-              <p className="text-2xl font-medium tracking-wide text-slate-100/50">
+              <div className="h-[calc(100vh-14rem)] text-2xl font-medium tracking-wide text-slate-100/50">
                 No search results found!
-              </p>
+              </div>
             )}
           </div>
         </div>

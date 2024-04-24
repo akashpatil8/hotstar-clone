@@ -9,7 +9,7 @@ export default function Profile() {
       <div className="mb-12 mt-16 flex items-center justify-between transition-all duration-100">
         <div className="flex flex-col gap-2">
           <p className="pl-4 text-sm font-semibold tracking-wide text-slate-100 sm:text-base md:text-lg lg:text-xl">
-            Subscribe to enjoy Desiny+ Hotstar {">"}
+            Subscribe to enjoy Disney+ Hotstar {">"}
           </p>
           <p className="pl-4 text-sm font-semibold tracking-wide text-slate-100 sm:text-base md:text-lg lg:text-xl">
             +91 8806666249
