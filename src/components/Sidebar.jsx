@@ -9,6 +9,12 @@ import SidebarItem from "./SidebarItem";
 
 export default function Sidebar() {
   const [expanded, setExpanded] = useState();
+  const [activeItem, setActiveItem] = useState("/home");
+
+  function handleItemClick(navigateTo) {
+    setActiveItem(navigateTo);
+    setExpanded(false);
+  }
 
   return (
     <aside
@@ -30,39 +36,43 @@ export default function Sidebar() {
         <ul className="ml-2 flex flex-col gap-4 text-slate-700">
           <SidebarItem
             icon={<FaRegCircleUser className="text-xl" />}
-            text={"MySpace"}
+            text={"My Space"}
             navigateTo="/myspace"
             expanded={expanded}
-            setExpanded={setExpanded}
+            active={activeItem === "/myspace"}
+            onClick={() => handleItemClick("/myspace")}
           />
           <SidebarItem
             icon={<FiSearch className="text-xl" />}
             text={"Search"}
             navigateTo="search"
             expanded={expanded}
-            setExpanded={setExpanded}
+            active={activeItem === "/search"}
+            onClick={() => handleItemClick("/search")}
           />
           <SidebarItem
             icon={<GoHome className="text-xl" />}
             text={"Home"}
             navigateTo="/home"
             expanded={expanded}
-            setExpanded={setExpanded}
-            active
+            active={activeItem === "/home"}
+            onClick={() => handleItemClick("/home")}
           />
           <SidebarItem
             icon={<PiTelevisionSimple className="text-xl" />}
             text={"Series"}
             navigateTo="series"
             expanded={expanded}
-            setExpanded={setExpanded}
+            active={activeItem === "/series"}
+            onClick={() => handleItemClick("/series")}
           />
           <SidebarItem
             icon={<BiMoviePlay className="text-xl" />}
             text={"Movies"}
             navigateTo="movies"
             expanded={expanded}
-            setExpanded={setExpanded}
+            active={activeItem === "/movies"}
+            onClick={() => handleItemClick("/movies")}
           />
         </ul>
       </nav>

@@ -74,7 +74,7 @@ export default function Hero({ carousalData, item }) {
       <div className="flex h-16 gap-2 pr-16 lg:h-20 lg:gap-4">
         <Button size={"large"}>
           <FaPlay />
-          Subscribe to watch
+          Watch Trailer
         </Button>
         <Button size={"small"}>
           <BsPlusLg />

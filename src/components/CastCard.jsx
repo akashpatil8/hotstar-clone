@@ -15,7 +15,7 @@ export default function CastCard({ credit }) {
         </div>
       )}
 
-      <p className="text-xs font-semibold md:text-sm lg:text-lg">
+      <p className="text-xs font-semibold text-slate-200 md:text-sm lg:text-lg">
         {credit?.original_name}
       </p>
       <p className="text-xs font-light text-slate-100/50 lg:text-base">

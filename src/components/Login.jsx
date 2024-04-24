@@ -10,7 +10,7 @@ export default function Login({ setShowLogin }) {
           Help & Support
         </Button>
       </div>
-      <div className="mt-8 flex flex-col items-center">
+      <div className="mt-24 flex flex-col items-center">
         <img
           src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_384/feature/myspace/my_space_login_in.png"
           alt=""

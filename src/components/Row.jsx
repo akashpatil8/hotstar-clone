@@ -10,7 +10,7 @@ export default function Row({
 }) {
   return (
     <div className="bg-black-background pb-4">
-      <p className="pl-4 text-sm font-semibold tracking-wide text-slate-100 sm:text-base md:text-lg lg:text-xl">
+      <p className="pl-4 text-sm font-semibold tracking-wide text-slate-200 sm:text-base md:text-lg lg:text-xl">
         {title}
       </p>
       {itemsData?.length === 0 ? (

@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { FiSearch } from "react-icons/fi";
 
 import Row from "../components/Row";
 import Card from "../components/Card";
 import CardLoader from "../ui/CardLoader";
 import SearchBar from "../components/SearchBar";
-import Footer  from "../components/Footer";
+import Footer from "../components/Footer";
 
 import { useGetSearched } from "../hooks/useGetSearched";
 import { useGetTrending } from "../hooks/useGetTrending";
