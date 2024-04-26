@@ -8,171 +8,158 @@ const options = {
 };
 
 export async function getTrending({ mediaType }) {
-  try {
-    const data = await fetch(
-      // 'https://api.themoviedb.org/3/trending/all/day?language=en-US'
-      `https://api.themoviedb.org/3/trending/${mediaType}/day?language=en-US`,
-      options,
-    ).then((response) => {
-      return response.json();
-    });
-    return data;
-  } catch (e) {
-    throw new Error(e);
+  const response = await fetch(
+    `https://api.themoviedb.org/3/trending/${mediaType}/day?language=en-US`,
+    options,
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
   }
+
+  const data = await response.json();
+  return data;
 }
 
 export async function getLatest() {
-  const data = await fetch(
+  const response = await fetch(
     "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
     options,
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      return Error(err);
-    });
+  );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
+  }
+
+  const data = await response.json();
   return data;
 }
 
 export async function getTopRated({ mediaType }) {
-  const data = await fetch(
+  const response = await fetch(
     `https://api.themoviedb.org/3/${mediaType}/top_rated?language=en-US&page=1`,
     options,
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      return Error(err);
-    });
+  );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
+  }
+
+  const data = await response.json();
   return data;
 }
 
 export async function getPopular({ mediaType }) {
-  const data = await fetch(
+  const response = await fetch(
     `https://api.themoviedb.org/3/${mediaType}/popular?language=en-US&page=1`,
     options,
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      return Error(err);
-    });
+  );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
+  }
+
+  const data = await response.json();
   return data;
 }
 
 export async function getUpcoming() {
-  const data = await fetch(
+  const response = await fetch(
     "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
     options,
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      return Error(err);
-    });
+  );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
+  }
+
+  const data = await response.json();
   return data;
 }
 
 export async function getSimilar({ itemId, mediaType }) {
-  const data = await fetch(
+  const response = await fetch(
     // 'https://api.themoviedb.org/3/tv/series_id/similar?language=en-US&page=1'
     `https://api.themoviedb.org/3/${mediaType}/${itemId}/similar?language=en-US&page=1`,
     options,
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      return Error(err);
-    });
+  );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
+  }
+
+  const data = await response.json();
   return data;
 }
 
 export async function getDetails({ itemId, mediaType }) {
-  const data = await fetch(
+  const response = await fetch(
     // 'https://api.themoviedb.org/3/tv/series_id?language=en-US'
     `https://api.themoviedb.org/3/${mediaType}/${itemId}?language=en-US`,
     options,
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      return Error(err);
-    });
+  );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
+  }
+
+  const data = await response.json();
   return data;
 }
 
 export async function getCredits({ itemId, mediaType }) {
-  const data = await fetch(
+  const response = await fetch(
     // https://api.themoviedb.org/3/tv/series_id/credits?language=en-US
     `https://api.themoviedb.org/3/${mediaType}/${itemId}/credits?language=en-US`,
     options,
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      return Error(err);
-    });
+  );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
+  }
+
+  const data = await response.json();
   return data;
 }
 
 export async function getSearched(query) {
-  const data = await fetch(
+  const response = await fetch(
     `https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=1`,
     options,
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      return Error(err);
-    });
+  );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
+  }
+
+  const data = await response.json();
   return data;
 }
 
 export async function getGenres({ mediaType }) {
-  const data = await fetch(
-    // https://api.themoviedb.org/3/genre/tv/list?language=en
-    `https://api.themoviedb.org/3/genre/${mediaType}/list?language=en`,
+  const response = await fetch(
+    `https://api.themoviedb.org/3/genre/${mediaType}/list/language=en`,
     options,
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      return Error(err);
-    });
+  );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
+  }
+
+  const data = await response.json();
   return data;
 }
 
-// 'https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1'
 export async function getAiringTodayTV() {
-  const data = await fetch(
+  const response = await fetch(
     "https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=1",
     options,
-  )
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      return Error(err);
-    });
+  );
 
+  if (!response.ok) {
+    throw new Error("Failed to fetch genres");
+  }
+
+  const data = await response.json();
   return data;
 }

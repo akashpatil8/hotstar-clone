@@ -24,8 +24,6 @@ export default function Details() {
     mediaType,
   });
 
-  console.log(creditsData);
-
   return (
     <Main mainItem={item}>
       {creditsData?.length > 0 && <CasteRow creditsData={creditsData} />}

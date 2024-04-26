@@ -22,6 +22,7 @@ export default function Card({ item, isRating, i }) {
             src={`https://image.tmdb.org/t/p/w500/${item?.poster_path}`}
             alt={item?.title}
             className="h-full w-full rounded-md object-cover"
+            loading="lazy"
           />
         ) : (
           <div className="grid h-full w-full place-items-center rounded-md bg-slate-900  text-sm font-semibold sm:text-base md:text-lg lg:text-xl xl:text-2xl">

@@ -1,12 +1,13 @@
 import { RxPerson } from "react-icons/rx";
 
-export default function CastCard({ credit }) {
+export default function CasteCard({ credit }) {
   return (
     <div className="h-full w-20 flex-shrink-0 md:w-24 lg:w-36">
       {credit.profile_path ? (
         <img
           src={`https://image.tmdb.org/t/p/w500/${credit?.profile_path}`}
           alt={credit?.original_name}
+          loading="lazy"
           className="mb-1 h-32 w-full rounded-md object-cover md:h-36 lg:mb-2 lg:h-52"
         />
       ) : (

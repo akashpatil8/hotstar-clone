@@ -1,5 +1,5 @@
 import React from "react";
-import CasteCard from "./CastCard";
+import CasteCard from "./CasteCard";
 
 export default function CasteRow({ creditsData }) {
   return (
