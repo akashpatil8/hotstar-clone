@@ -1,4 +1,3 @@
-import React from "react";
 import CasteCard from "./CasteCard";
 
 export default function CasteRow({ creditsData }) {
