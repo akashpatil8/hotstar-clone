@@ -43,9 +43,10 @@ export default function Search() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            {isSearchedLoading ? (
-              Array.from({ length: 15 }, (i) => <CardLoader key={i} />)
-            ) : searchedData?.length > 0 ? (
+            {isSearchedLoading &&
+              Array.from({ length: 15 }, (i) => <CardLoader key={i} />)}
+
+            {!isSearchedLoading || searchedData?.length > 0 ? (
               searchedData
                 ?.slice(0, 15)
                 .map((item, i) => <Card key={item.id} item={item} i={i} />)

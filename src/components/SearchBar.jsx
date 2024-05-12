@@ -9,7 +9,7 @@ export default function SearchBar({ handleSubmit, setQuery }) {
       <FiSearch
         type="submit"
         onClick={handleSubmit}
-        className="text-lg lg:text-3xl"
+        className="cursor-pointer text-lg text-slate-500 transition-all duration-200 hover:scale-110 hover:text-slate-100 lg:text-2xl"
       />
       <input
         onChange={(e) => setQuery(e.target.value)}

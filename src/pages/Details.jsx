@@ -19,7 +19,7 @@ export default function Details() {
     itemId,
     mediaType,
   });
-  const { creditsData, isLoading: isCreditsLoading } = useGetCredits({
+  const { creditsData } = useGetCredits({
     itemId,
     mediaType,
   });
