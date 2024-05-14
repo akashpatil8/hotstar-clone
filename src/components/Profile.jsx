@@ -1,9 +1,12 @@
-import React from "react";
-import Button from "../ui/Button";
 import { RxQuestionMarkCircled } from "react-icons/rx";
 import { BsPlusLg } from "react-icons/bs";
+import { IoLogOutOutline } from "react-icons/io5";
+import { useUser } from "../context/UserContext";
+
+import Button from "../ui/Button";
 
 export default function Profile() {
+  const { logout } = useUser();
   return (
     <div className="h-screen">
       <div className="mb-12 mt-16 flex items-center justify-between transition-all duration-100">
@@ -16,8 +19,12 @@ export default function Profile() {
           </p>
         </div>
         <div className="flex h-20 gap-4">
-          <button className="my-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-900 px-14 py-3 text-lg font-bold transition-all duration-300 hover:scale-105">
-            Subscribe
+          <button
+            onClick={() => logout()}
+            className="my-3 flex items-center gap-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-900 px-14 py-3 text-lg font-bold transition-all duration-300 hover:scale-105"
+          >
+            <IoLogOutOutline className="text-xl" />
+            Logout
           </button>
           <Button size="large">
             <RxQuestionMarkCircled />
@@ -30,6 +37,7 @@ export default function Profile() {
         <p className="pl-4 text-sm font-semibold tracking-wide text-slate-100 sm:text-base md:text-lg lg:text-xl">
           Profiles
         </p>
+
         <div className="mt-6 flex gap-8 pl-4">
           <div className="cursor-pointer text-center transition-all duration-150 hover:scale-110">
             <img

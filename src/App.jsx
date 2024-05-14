@@ -9,6 +9,7 @@ import Movies from "./pages/Movies";
 import Series from "./pages/Series";
 import Search from "./pages/Search";
 import Details from "./pages/Details";
+import UserProvider from "./context/UserContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,17 +25,22 @@ export default function App() {
       <ReactQueryDevtools initialIsOpen={false} />
 
       <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route index element={<Navigate replace to="home" />} />
-            <Route path="myspace" element={<MySpace />} />
-            <Route path="home" element={<Home />} />
-            <Route path="search" element={<Search />} />
-            <Route path="series" element={<Series />} />
-            <Route path="movies" element={<Movies />} />
-            <Route path=":mediaType/:urlTitle/:movieId" element={<Details />} />
-          </Route>
-        </Routes>
+        <UserProvider>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route index element={<Navigate replace to="home" />} />
+              <Route path="myspace" element={<MySpace />} />
+              <Route path="home" element={<Home />} />
+              <Route path="search" element={<Search />} />
+              <Route path="series" element={<Series />} />
+              <Route path="movies" element={<Movies />} />
+              <Route
+                path=":mediaType/:urlTitle/:movieId"
+                element={<Details />}
+              />
+            </Route>
+          </Routes>
+        </UserProvider>
       </BrowserRouter>
     </QueryClientProvider>
   );
