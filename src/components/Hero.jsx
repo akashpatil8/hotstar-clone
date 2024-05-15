@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { BsPlusLg } from "react-icons/bs";
 import { FaPlay } from "react-icons/fa6";
 
@@ -5,8 +6,12 @@ import Carousal from "./Carousal";
 import Button from "../ui/Button";
 
 import { formatRuntime } from "../helper/helper";
+import { useUser } from "../context/UserContext";
 
 export default function Hero({ carousalData, item }) {
+  const { isUserLoggedIn } = useUser();
+  const navigate = useNavigate();
+
   return (
     <div className="absolute bottom-16 left-4">
       <h1 className="w-[50%] text-4xl lg:text-6xl">
@@ -72,9 +77,12 @@ export default function Hero({ carousalData, item }) {
       </div>
 
       <div className="flex h-16 gap-2 pr-16 lg:h-20 lg:gap-4">
-        <Button size={"large"}>
+        <Button
+          onClick={() => (isUserLoggedIn ? navigate("") : navigate("/mySpace"))}
+          size={"large"}
+        >
           <FaPlay />
-          Watch Trailer
+          {isUserLoggedIn ? "Watch Trailer" : "Login to Watch"}
         </Button>
         <Button size={"small"}>
           <BsPlusLg />

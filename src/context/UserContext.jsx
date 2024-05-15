@@ -1,12 +1,13 @@
+import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { createContext, useContext, useEffect, useState } from "react";
+
 import { auth } from "../firebase/config";
-import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();
 
@@ -41,7 +42,6 @@ export default function UserProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
       setUser(currentUser);
     });
 
