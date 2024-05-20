@@ -20,7 +20,7 @@ export default function UserProvider({ children }) {
     setError("");
 
     await createUserWithEmailAndPassword(auth, email, password)
-      .then(() => navigate("/home"))
+      .then(() => navigate("/mySpace"))
       .catch((err) => setError(err.code));
   }
 
@@ -28,7 +28,7 @@ export default function UserProvider({ children }) {
     setError("");
 
     await signInWithEmailAndPassword(auth, email, password)
-      .then(() => navigate("/home"))
+      .then(() => navigate("/mySpace"))
       .catch((err) => setError(err.code));
   }
 
@@ -36,7 +36,7 @@ export default function UserProvider({ children }) {
     setError("");
 
     await signOut(auth)
-      .then(() => navigate("/"))
+      .then(() => navigate("/mySpace"))
       .catch((err) => setError(error.code));
   }
 

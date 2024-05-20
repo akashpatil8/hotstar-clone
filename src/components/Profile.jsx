@@ -1,14 +1,27 @@
+import { useState } from "react";
 import { RxQuestionMarkCircled } from "react-icons/rx";
 import { BsPlusLg } from "react-icons/bs";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useUser } from "../context/UserContext";
 
 import Button from "../ui/Button";
+import CreateProfile from "./CreateProfile";
+import ProfileCard from "./ProfileCard";
+
+const profiles = [
+  {
+    imgUrl:
+      "https://img1.hotstarext.com/image/upload/w_200,h_200,c_fill/feature/profile/19.png",
+    profileName: "Kids",
+  },
+];
 
 export default function Profile() {
   const { logout } = useUser();
+  const [showCreateProfileForm, setShowCreateProfileForm] = useState(false);
+
   return (
-    <div className="h-screen">
+    <div className="relative h-screen">
       <div className="mb-12 mt-16 flex items-center justify-between transition-all duration-100">
         <div className="flex flex-col gap-2">
           <p className="pl-4 text-sm font-semibold tracking-wide text-slate-100 sm:text-base md:text-lg lg:text-xl">
@@ -39,23 +52,14 @@ export default function Profile() {
         </p>
 
         <div className="mt-6 flex gap-8 pl-4">
-          <div className="cursor-pointer text-center transition-all duration-150 hover:scale-110">
-            <img
-              src="https://img1.hotstarext.com/image/upload/w_200,h_200,c_fill/v1/feature/profile/38.png"
-              alt=""
-              className="mb-2 h-24 w-24 object-cover "
-            />
-            <p className="text-lg font-medium text-slate-400">Akash</p>
-          </div>
-          <div className="cursor-pointer text-center transition-all duration-150 hover:scale-110">
-            <img
-              src="https://img1.hotstarext.com/image/upload/w_200,h_200,c_fill/feature/profile/19.png"
-              alt=""
-              className="mb-2 h-24 w-24 object-cover "
-            />
-            <p className="text-lg font-medium text-slate-400">Kids</p>
-          </div>
-          <div className="cursor-pointer text-center transition-all duration-150 hover:scale-110">
+          {profiles.map((profile, i) => (
+            <ProfileCard key={profile.profileName + i} profile={profile} />
+          ))}
+
+          <div
+            onClick={() => setShowCreateProfileForm(true)}
+            className="cursor-pointer text-center transition-all duration-150 hover:scale-110"
+          >
             <div className="mb-2 flex h-24 w-24 items-center justify-center rounded-full bg-slate-600/50">
               <BsPlusLg className="text-3xl" />
             </div>
@@ -63,6 +67,12 @@ export default function Profile() {
           </div>
         </div>
       </div>
+      {showCreateProfileForm && (
+        <CreateProfile
+          setShowCreateProfileForm={setShowCreateProfileForm}
+          profiles={profiles}
+        />
+      )}
     </div>
   );
 }

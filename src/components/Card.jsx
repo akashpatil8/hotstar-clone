@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 export default function Card({ item, isRating, i }) {
+  const { isUserLoggedIn } = useUser();
   const navigate = useNavigate();
   const mediaType = item.release_date ? "movie" : "tv";
   const urlTitle = item.original_title
@@ -11,9 +13,11 @@ export default function Card({ item, isRating, i }) {
     <div className="flex aspect-[3/5] h-32 flex-shrink-0 items-center sm:h-40 md:h-52 lg:h-64 xl:h-72">
       <div
         onClick={() => {
-          navigate(`/${mediaType}/${urlTitle}/${item?.id}`, {
-            state: { item },
-          });
+          isUserLoggedIn
+            ? navigate(`/${mediaType}/${urlTitle}/${item?.id}`, {
+                state: { item },
+              })
+            : navigate("/mySpace");
         }}
         className="relative z-20 h-[90%] w-full cursor-pointer rounded transition-all duration-100 hover:scale-110"
       >
