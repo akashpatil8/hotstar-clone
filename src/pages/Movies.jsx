@@ -1,5 +1,5 @@
 import Row from "../components/Row";
-import Footer  from "../components/Footer";
+import Footer from "../components/Footer";
 
 import { useGetLatest } from "../hooks/useGetLatest";
 import { useGetPopular } from "../hooks/useGetPopular";

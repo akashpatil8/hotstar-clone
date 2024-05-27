@@ -138,7 +138,8 @@ export async function getSearched(query) {
 
 export async function getGenres({ mediaType }) {
   const response = await fetch(
-    `https://api.themoviedb.org/3/genre/${mediaType}/list/language=en`,
+    // "https://api.themoviedb.org/3/genre/movie/list"
+    `https://api.themoviedb.org/3/genre/${mediaType}/list`,
     options,
   );
 

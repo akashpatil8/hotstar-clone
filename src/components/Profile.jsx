@@ -27,9 +27,9 @@ export default function Profile() {
           <p className="pl-4 text-sm font-semibold tracking-wide text-slate-100 sm:text-base md:text-lg lg:text-xl">
             Subscribe to enjoy Disney+ Hotstar {">"}
           </p>
-          <p className="pl-4 text-sm font-semibold tracking-wide text-slate-100 sm:text-base md:text-lg lg:text-xl">
+          {/* <p className="pl-4 text-sm font-semibold tracking-wide text-slate-100 sm:text-base md:text-lg lg:text-xl">
             +91 8806666249
-          </p>
+          </p> */}
         </div>
         <div className="flex h-20 gap-4">
           <button

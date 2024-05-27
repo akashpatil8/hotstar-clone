@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export default function ProfileCard({ profile }) {
   const { imgUrl, profileName } = profile;
