@@ -69,6 +69,7 @@ export default function UserProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useUser() {
   const context = useContext(UserContext);
   if (context === undefined)
