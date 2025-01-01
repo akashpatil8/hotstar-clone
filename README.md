@@ -2,6 +2,10 @@
 
 Welcome to the Hotstar Clone! This project is a replica of the popular video streaming platform Hotstar. It features a vast collection of movies and TV shows, offering users an immersive browsing experience, complete with secure authentication and a responsive design.
 
+## Link
+
+- https://hotstar-akash.vercel.app
+
 ## Table of Contents
 
 - [Installation](#installation)
